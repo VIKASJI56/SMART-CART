@@ -1,0 +1,38 @@
+{
+  "name": "E-commerce app",
+  "version": "1.0.0",
+  "description": "complete mern stack ecommerce project 2023 complete code # Please check branches source code is video no wise  ## here is project playlist : https://youtube.com/playlist?list=PLuHGmgpyHfRzhGkSUfY0vpi67X64g0mXB ## please like subscribe and share TechinfoYT youtube chaannel",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix ./client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Devloper",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "braintree": "^3.21.0",
+    "braintree-web-drop-in-react": "^1.2.1",
+    "cloudinary": "^1.41.2",
+    "colors": "^1.4.0",
+    "concurrently": "^8.2.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "datauri": "^4.1.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-formidable": "^1.2.0",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "moment": "^2.30.1",
+    "mongoose": "^8.0.4",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "react-icons": "^5.0.1",
+    "slugify": "^1.6.6"
+  }
+}
