@@ -2,12 +2,19 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/CategoryProductStyles.css";
+import toast from "react-hot-toast";
+import { useCart } from "../context/cart";
 import axios from "axios";
 const CategoryProduct = () => {
   const params = useParams();
   const navigate = useNavigate();
+  const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+
 
   useEffect(() => {
     if (params?.slug) getPrductsByCat();
@@ -27,7 +34,7 @@ const CategoryProduct = () => {
   return (
     <Layout>
       <div className="container mt-3 category">
-        <h4 className="text-center">Category - {category?.name}</h4>
+        <h4 className="text-center">Category-{category?.name}</h4>
         <h6 className="text-center">{products?.length} result found </h6>
         <div className="row">
           <div className="col-md-9 offset-1">
@@ -59,7 +66,7 @@ const CategoryProduct = () => {
                       >
                         More Details
                       </button>
-                      {/* <button
+                      <button
                     className="btn btn-dark ms-1"
                     onClick={() => {
                       setCart([...cart, p]);
@@ -71,13 +78,13 @@ const CategoryProduct = () => {
                     }}
                   >
                     ADD TO CART
-                  </button> */}
+                  </button>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-            {/* <div className="m-2 p-3">
+            <div className="m-2 p-3">
             {products && products.length < total && (
               <button
                 className="btn btn-warning"
@@ -89,7 +96,7 @@ const CategoryProduct = () => {
                 {loading ? "Loading ..." : "Loadmore"}
               </button>
             )}
-          </div> */}
+          </div>
           </div>
         </div>
       </div>

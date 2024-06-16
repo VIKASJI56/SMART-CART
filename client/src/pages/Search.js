@@ -1,8 +1,10 @@
 import React from "react";
 import Layout from "./../components/Layout/Layout";
 import { useSearch } from "../context/search";
+import { useNavigate } from "react-router-dom";
 const Search = () => {
   const [values, setValues] = useSearch();
+  const navigate = useNavigate();
   return (
     <Layout title={"Search results"}>
       <div className="container">

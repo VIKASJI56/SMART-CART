@@ -48,6 +48,7 @@ const CartPage = () => {
   //get payment gateway token
   const getToken = async () => {
     try {
+      console.log("token");
       const { data } = await axios.get("/api/v1/product/braintree/token");
       setClientToken(data?.clientToken);
     } catch (error) {
@@ -201,16 +202,3 @@ const CartPage = () => {
 };
 
 export default CartPage;
-
-
-//import React from "react";
-// import{Link} from "react-router-dom"
-// const CartPage=()=>{
-//   return(
-//     <div className="CartPage">
-//       <h1>CartPage</h1>
-//     </div>
-//   );
-// };
-
-// export default CartPage;

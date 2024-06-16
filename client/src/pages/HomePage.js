@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
  import { Prices } from "../components/Prices";
- //import { useCart } from "../context/cart";
+ import { useCart } from "../context/cart";
 import axios from "axios";
-//import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
 import "../styles/Homepage.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
- // const [cart, setCart] = useCart();
+  const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
@@ -41,7 +41,6 @@ const HomePage = () => {
     try {
       setLoading(true);
        const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
-      //const { data } = await axios.get(`/api/v1/product/get-product`);
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -186,14 +185,14 @@ const HomePage = () => {
                     </button>
                     <button
                       className="btn btn-dark ms-1"
-                      // onClick={() => {
-                      //   setCart([...cart, p]);
-                      //   localStorage.setItem(
-                      //     "cart",
-                      //     JSON.stringify([...cart, p])
-                      //   );
-                      //   toast.success("Item Added to cart");
-                      // }}
+                      onClick={() => {
+                        setCart([...cart, p]);
+                        localStorage.setItem(
+                          "cart",
+                          JSON.stringify([...cart, p])
+                        );
+                        toast.success("Item Added to cart");
+                      }}
                     >
                       ADD TO CART
                     </button>
@@ -232,20 +231,3 @@ const HomePage = () => {
  export default HomePage;
 
 
-
-//  import React from "react";
-// import{Link} from "react-router-dom"
-// const Homepage=()=>{
-//   return(
-//     <div className="Homepage">
-//       <h1 className="text-center">All right reserved &copy; Devloper</h1>
-//       <p className="text-center mt-3">
-//         <Link >About</Link>
-//         <Link>Contact</Link>
-//         <Link>Policy</Link>
-//       </p>
-//     </div>
-//   );
-// };
-
-// export default Homepage;

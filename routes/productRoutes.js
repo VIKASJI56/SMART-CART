@@ -1,17 +1,17 @@
 import express from "express";
 import {
-  // brainTreePaymentController,
-  // braintreeTokenController,
+   brainTreePaymentController,
+   braintreeTokenController,
    createProductController,
    deleteProductController,
    getProductController,
    getSingleProductController,
-  // productCategoryController,
+   productCategoryController,
    productCountController,
    productFiltersController,
    productListController,
    productPhotoController,
-  // realtedProductController,
+   realtedProductController,
    searchProductController,
    updateProductController,
 } from "../controllers/productController.js";
@@ -62,16 +62,16 @@ router.put(
  router.get("/search/:keyword", searchProductController);
 
 // //similar product
-// router.get("/related-product/:pid/:cid", realtedProductController);
+router.get("/related-product/:pid/:cid", realtedProductController);
 
 // //category wise product
-// router.get("/product-category/:slug", productCategoryController);
+ router.get("/product-category/:slug", productCategoryController);
 
 // //payments routes
 // //token
-// router.get("/braintree/token", braintreeTokenController);
+  router.get("/braintree/token", braintreeTokenController);
 
 // //payments
-// router.post("/braintree/payment", requireSignIn, brainTreePaymentController);
+ router.post("/braintree/payment",  brainTreePaymentController);
 
  export default router;
